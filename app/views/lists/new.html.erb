@@ -1,0 +1,18 @@
+<div class="container mx-auto px-10 lg:w-6/12 md:w-9/12 w-10/12">
+  <div class="row">
+    <div>
+      <div class="bg-red-50 rounded p-8 shadow">
+        <h3 class="text-green-800 font-bold text-center text-2xl">Create a new list</h3>
+        <%= simple_form_for @list do |f| %>
+          <span class="text-green-800 font-bold">List Name</span>
+          <%= f.input :name, placeholder: 'Drama', class: 'form-input px-4 py-3 rounded-full', label: false %>
+          <span class="text-green-800 font-bold">Photo</span>
+          <%= f.input :photo, class: 'form-input px-4 py-3 rounded-full', label: false %>
+          <div class="flex justify-center">
+            <%= f.submit class: 'bg-green-600 text-red-50 hover:bg-green-800 font-bold py-2 px-4 rounded mt-10' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,9 +8,24 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-green-800">
+    <nav class="flex items-center justify-between flex-wrap bg-green-800 p-6">
+      <div class="flex items-center flex-shrink-0 text-red-100 mr-6">
+        <span class="font-bold text-xl">Watch List</span>
+      </div>
+
+      <div class="w-full block flex-grow sm:flex sm:items-center sm:w-auto">
+        <div class="text-sm sm:flex-grow">
+          <%= link_to 'My movie list', lists_path, class: 'block mt-4 sm:inline-block sm:mt-0 text-teal-200 text-red-100 mr-4' %>
+        </div>
+        <div>
+          <%= link_to 'Add new movie list', new_list_path, class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-red-100 border-red-100 hover:border-transparent hover:text-green-800 hover:bg-red-100 mt-4 md:mt-0' %>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

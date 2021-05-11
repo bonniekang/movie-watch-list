@@ -1,0 +1,38 @@
+<div class="container mx-auto px-2 ">
+  <div class="container">
+    <div>
+      <h1 class="text-9xl font-bold text-red-100 hover:text-red-50 my-11">SÅVE ∀ƝY KIṈƉ OƑ MƠVIĔS</h1>
+    </div>
+    <div class="my-12">
+      <%= link_to 'Create a movie list', new_list_path, class: 'text-3xl font-bold px-8 py-4 shadow-2xl leading-none rounded-xl border-red-100 text-green-800 bg-red-100 hover:bg-red-50 animate-pulse' %>
+    </div>
+  </div>
+  <div class="flex justify-center my-11">
+    <div class="w-full h-96 overflow-hidden rounded-lg my-11">
+      <img src="https://images.unsplash.com/photo-1579256308261-8e455c47a0d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1231&q=80" alt="" class="rounded-lg object-cover w-full shadow-2xl opacity-90">
+    </div>
+  </div>
+</div>
+<div class="container mx-auto px-2 mb-32">
+  <div>
+    <h3 class="my-12 text-5xl font-bold text-red-100 hover:text-red-50">My Lists</h3>
+  </div>
+  <div class="bg-red-50 container grid md:grid-cols-3 lg:grid-cols-4 gap-10 justify-items-center p-5 rounded-xl">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list), class:'text-decoration-none' do %>
+        <div class="shadow-inner bg-red-50 p-5 rounded-xl hover:shadow-2xl">
+          <div class="movie-list-img">
+            <% if list.photo.attached? %>
+              <%= cl_image_tag list.photo.key %>
+            <% else %>
+              <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80" alt="">
+            <% end %>
+          </div>
+          <div class="text-green-800 font-bold">
+            <%= list.name %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

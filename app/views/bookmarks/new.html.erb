@@ -1,0 +1,18 @@
+<div class="container mx-auto px-10 lg:w-6/12 md:w-9/12 w-10/12">
+  <div class="row">
+    <div>
+      <div class="bg-red-50 rounded p-8 shadow">
+        <h3 class="text-green-800 font-bold text-center text-2xl">Add a movie to your <%= @list.name %> list</h3>
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+          <span class="text-green-800 font-bold">Comment</span>
+          <%= f.input :comment, placeholder: 'Enter a comment about the movie', class: 'form-input px-4 py-3 rounded-full', label: false %>
+          <span class="text-green-800 font-bold">Movie</span>
+          <%= f.association :movie, prompt: 'Select a movie', class: 'form-input px-4 py-3 rounded-full', label: false, input_html: { class: 'select2' } %>
+          <div class="flex justify-center">
+            <%= f.submit class: 'bg-green-600 text-red-50 hover:bg-green-800 font-bold py-2 px-4 rounded mt-10' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
