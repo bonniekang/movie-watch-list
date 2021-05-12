@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   before_action :set_bookmark, only: :destroy
   before_action :set_list, only: [:new, :create]
+  skip_before_action :verify_authenticity_token, only: :destroy
 
   def new
     @bookmark = Bookmark.new
